@@ -1,4 +1,6 @@
 #Mad Libs Random Story Generator
+import json
+import os
 
 class MadLibs:
     def _init_(self, word_descriptions, template):
@@ -17,6 +19,11 @@ def get_words_from_user(word_descriptions):
 def build_story(template, words):
     story = template.format(*words)
     return story
+
+def get_template(name, path="./templates"):
+    fpath = os.path.join(path, name)
+    print(fpath)
+
 
 template = "I own a big {}. I like to {}."
 words = get_words_from_user(["noun", "verb"])
