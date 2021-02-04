@@ -13,9 +13,14 @@ def get_words_from_user(word_descriptions):
         words.append(user_input)
     return words
 
+#Story Building
+def build_story(template, words):
+    story = template.format(*words)
+    return story
+
 template = "I own a big {}. I like to {}."
 words = get_words_from_user(["noun", "verb"])
-story = template.format(*words)
+story = build_story(template, words)
+
 print(story)
 
-#Story Building
