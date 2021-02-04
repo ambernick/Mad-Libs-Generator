@@ -3,9 +3,8 @@
 class MadLibs:
     def _init_(self, word_descriptions, template):
         self.template = templateself.word_descriptions = word_descriptions 
-#Template
 
-#User Input
+
 def get_words_from_user(word_descriptions):
     words = []
     print("Please provide the following words: ")
@@ -13,7 +12,10 @@ def get_words_from_user(word_descriptions):
         user_input = input(desc + " ")
         words.append(user_input)
     return words
+
+template = "I own a big {}. I like to {}."
 words = get_words_from_user(["noun", "verb"])
-print(words)
+story = template.format(*words)
+print(story)
 
 #Story Building
