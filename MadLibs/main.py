@@ -6,11 +6,14 @@ class MadLibs:
 #Template
 
 #User Input
-word_descriptions = ["noun", "verb"]
-words = []
-print("Please provide the following words: ")
-for desc in word_descriptions:
-    user_input = input(desc + " ")
-    words.append(user_input)
+def get_words_from_user(word_descriptions):
+    words = []
+    print("Please provide the following words: ")
+    for desc in word_descriptions:
+        user_input = input(desc + " ")
+        words.append(user_input)
+    return words
+words = get_words_from_user(["noun", "verb"])
 print(words)
+
 #Story Building
