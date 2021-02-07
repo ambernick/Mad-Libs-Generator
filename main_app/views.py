@@ -8,4 +8,4 @@ def home(request):
   return HttpResponse('<h1>Welcome to Mad Libs Generator(HomePage)!</h1>')
 
 def about(request):
-    return HttpResponse('<h1>About Mad Libs(AboutPage)</>')
+    return render(request, 'about.html')
