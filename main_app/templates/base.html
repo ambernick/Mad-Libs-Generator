@@ -17,8 +17,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Mad Libs Generator</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
-          <li><a href="/MadLibs">My Mad Libs</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'madlibs_create' %}">Add a Lib</a></li>
+          <li><a href="{% url 'index' %}">My Mad Libs</a></li>
         </ul>
       </div>
     </nav>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Mad Lib List</h1>
+
+{% for madlib in madlibs %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ madlib.name }}</span>
+      <p>Breed: {{ madlib.breed }}</p>
+      <p>Description: {{ madlib.description }}</p>
+      {% if madlib.age > 0 %}
+        <p>Age: {{ madlib.age }}</p>
+      {% else %}
+        <p>Age: Kitten</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
