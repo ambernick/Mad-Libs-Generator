@@ -12,9 +12,9 @@
 <body>
   <header class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper orange">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Mad Libs Generator</a></li>
+          <a href="/" class="brand-logo center"><i class="material-icons">cloud</i>Mad Libs Generator</a>
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
@@ -34,7 +34,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer yellow">
     <div class="right">All Rights Reserved, &copy; 2021 Mad Libs Generator &nbsp;</div>
   </footer>
 </body>

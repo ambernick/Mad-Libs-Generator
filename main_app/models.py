@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class MadLib(models.Model):
   title = models.CharField(max_length=250, null=True)
   wordinserts = models.TextField(max_length=100, null=True)
-  story = models.TextField(max_length=500, null=True)
+  story = models.TextField(max_length=5000, null=True)
   theme = models.CharField(max_length=250, null=True)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
