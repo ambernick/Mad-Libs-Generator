@@ -12,7 +12,7 @@ class MadLibCreate(CreateView):
 
 class MadLibUpdate(UpdateView):
   model = MadLib
-  fields = ['breed', 'description', 'age']
+  fields = ['title', 'theme', 'story', 'wordinserts' ]
 
 class MadLibDelete(DeleteView):
   model = MadLib

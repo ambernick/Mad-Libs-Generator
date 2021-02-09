@@ -2,13 +2,13 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 class MadLib(models.Model):
-  name = models.CharField(max_length=100)
-  breed = models.CharField(max_length=100)
-  description = models.TextField(max_length=250)
-  age = models.IntegerField()
+  title = models.CharField(max_length=250, null=True)
+  wordinserts = models.TextField(max_length=100, null=True)
+  story = models.TextField(max_length=500, null=True)
+  theme = models.CharField(max_length=250, null=True)
 
   def __str__(self):
-    return self.name
+    return self.title
 
   def get_absolute_url(self):
     return reverse('detail', kwargs={'madlib_id': self.id})

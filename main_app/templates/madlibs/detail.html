@@ -7,15 +7,10 @@
   <div class="col s6">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ madlib.name }}</span>
-        <p>Breed: {{ madlib.breed }}</p>
-        <p>Description: {{ madlib.description }}</p>
-        {% if madlib.age > 0 %}
-          <p>Age: {{ madlib.age }}</p>
-        {% else %}
-          <p>Age: Kitten</p>
-        {% endif %}
-    </div>
+        <span class="card-title">{{ madlib.title }}, {{madlib.theme }}</span>
+        <p>Required Words: {{ madlib.wordinserts }}</p>
+        <p>Story/Lib: {{ madlib.story }}</p>
+       </div>
     <div class="card-action">
       <a href="{% url 'madlibs_update' madlib.id %}">Edit</a>
       <a href="{% url 'madlibs_delete' madlib.id %}">Delete</a>
