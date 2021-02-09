@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import MadLib
 
 class MadLibCreate(CreateView):
@@ -10,13 +10,17 @@ class MadLibCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
+class MadLibUpdate(UpdateView):
+  model = MadLib
+  fields = ['breed', 'description', 'age']
+
 class MadLibDelete(DeleteView):
   model = MadLib
   success_url = '/madlibs/' 
 
 # Define the home view
 def home(request):
-  return HttpResponse('<h1>Welcome to Mad Libs Generator(HomePage)!</h1>')
+  return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
