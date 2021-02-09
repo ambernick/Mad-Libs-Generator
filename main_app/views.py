@@ -26,7 +26,7 @@ def signup(request):
 
 class MadLibCreate(CreateView):
   model = MadLib
-  fields = '__all__'
+  fields = ['title', 'theme', 'story', 'wordinserts' ]
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)

@@ -21,7 +21,7 @@
           {% if user.is_authenticated %}
             <li><a href="{% url 'madlibs_create' %}">Add a Lib</a></li>
             <li><a href="{% url 'index' %}">My Mad Libs</a></li>
-            <li><a href="{% url 'logout' %}"></a>Logout</li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
