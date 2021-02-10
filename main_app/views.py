@@ -52,8 +52,21 @@ def madlibs_index(request):
 
 def madlibs_detail(request, madlib_id):
   madlib = MadLib.objects.get(id=madlib_id)
-  # instantiate FeedingForm to be rendered in the template
   return render(request, 'madlibs/detail.html', {
-    # pass the madlib and feeding_form as context
     'madlib': madlib, 
   })
+
+def madlibs_generate(request, madlib_id):
+  madlib = MadLib.objects.get(id=madlib_id)
+  x = madlib.story.rsplit('{}')
+  i = 1 
+  j = 0
+  print(x)
+  while i < len(x)+1:
+    x.insert(i, f"<input type='text' placeholder={ madlib.wordinserts[j] }>") 
+    i = i+2 
+    j = j+1     
+  
+  return render(request, 'main_app/madlib_generateform.html', {
+    'madlib': madlib, 'madlibArray' : x
+  })  
