@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import MadLib
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def signup(request):
   error_message = ''
@@ -24,18 +26,18 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class MadLibCreate(CreateView):
+class MadLibCreate(LoginRequiredMixin, CreateView):
   model = MadLib
   fields = ['title', 'theme', 'story', 'wordinserts' ]
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class MadLibUpdate(UpdateView):
+class MadLibUpdate(LoginRequiredMixin, UpdateView):
   model = MadLib
   fields = ['title', 'theme', 'story', 'wordinserts' ]
 
-class MadLibDelete(DeleteView):
+class MadLibDelete(LoginRequiredMixin, DeleteView):
   model = MadLib
   success_url = '/madlibs/' 
 
@@ -46,16 +48,19 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def madlibs_index(request):
   madlibs = MadLib.objects.all()
   return render(request, 'madlibs/index.html', { 'madlibs': madlibs })
 
+@login_required
 def madlibs_detail(request, madlib_id):
   madlib = MadLib.objects.get(id=madlib_id)
   return render(request, 'madlibs/detail.html', {
     'madlib': madlib, 
   })
 
+@login_required
 def madlibs_generate(request, madlib_id):
   madlib = MadLib.objects.get(id=madlib_id)
   x = madlib.story.rsplit('{}')
