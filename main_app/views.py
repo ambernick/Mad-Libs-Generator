@@ -62,7 +62,8 @@ def madlibs_generate(request, madlib_id):
   i = 1 
   j = 0
   print(x)
-  while i < len(x)+1:
+  while i < len(x):
+    
     x.insert(i, f"<input type='text' placeholder={ madlib.wordinserts[j] }>") 
     i = i+2 
     j = j+1     
