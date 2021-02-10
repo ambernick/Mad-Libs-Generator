@@ -9,7 +9,7 @@
       <div class="card-content">
         <span class="card-title"> <em>{{ madlib.title }}</em>, <i>{{ madlib.theme }}</i></span>
         <p>Required Words: {{ madlib.wordinserts }}</p>
-        <p>Story/Lib by {{ madlib.user }}: </p>
+        <p>Story/Lib: </p>
         {% for split in madlibArray %}
         {% if "input" in split %}
         {{ split|safe }}
